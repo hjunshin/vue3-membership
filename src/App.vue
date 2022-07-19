@@ -1,17 +1,7 @@
 <script setup>
-  import MemberRegistrationStep1 from './components/MemberRegistrationStep1.vue'
-  import MemberRegistrationStep2 from './components/MemberRegistrationStep2.vue'
-  import MemberRegistrationStep3 from './components/MemberRegistrationStep3.vue'
-  import MemberRegistrationCompleted from './components/MemberRegistrationCompleted.vue'
+  import MemberRegistration from './components/MemberRegistration.vue'
 </script>
 
 <template>
-  <MemberRegistrationStep1 />
-  <MemberRegistrationStep2 />
-  <MemberRegistrationStep3 />
-  <MemberRegistrationCompleted />
+  <MemberRegistration />
 </template>
-
-<style scoped>
-
-</style>
