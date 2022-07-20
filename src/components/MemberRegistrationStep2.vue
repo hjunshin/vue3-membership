@@ -1,9 +1,23 @@
-<script setup>
-
+<script>
+  export default {
+    name: "MemberRegistrationStep2",
+    props: {
+      steps: Number,
+    },
+    emits: ["prev", "next"],
+    methods: {
+      handleStepPrev() {
+        this.$emit("prev");
+      },
+      handleStepNext() {
+        this.$emit("next");
+      },
+    },
+  }
 </script>
 
 <template>
-  <div class="member-step">
+  <div class="member-step" v-if="steps === 2">
     <h2>회원가입 2단계</h2>
     <div class="member-input-list">
       <div class="member-input">
@@ -23,5 +37,7 @@
         <input type="text" name="member_detail_address" id="member_detail_address" />
       </div>
     </div>
+    <button type="button" @click="handleStepPrev">이전</button>
+    <button type="button" @click="handleStepNext">다음</button>
   </div>
 </template>

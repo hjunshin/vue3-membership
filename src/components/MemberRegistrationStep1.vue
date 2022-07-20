@@ -1,9 +1,20 @@
-<script setup>
-
+<script>
+  export default {
+    name: "MemberRegistrationStep1",
+    props: {
+      steps: Number,
+    },
+    emits: ["next"],
+    methods: {
+      handleStepNext() {
+        this.$emit("next");
+      },
+    },
+  }
 </script>
 
 <template>
-  <div class="member-step">
+  <div class="member-step" v-if="steps === 1">
     <h2>회원가입 1단계</h2>
     <div class="member-input-list">
       <div class="member-input">
@@ -19,5 +30,6 @@
         <input type="password" name="member_password_confirm" id="member_password_confirm" />
       </div>
     </div>
+    <button type="button" @click="handleStepNext">다음</button>
   </div>
 </template>
