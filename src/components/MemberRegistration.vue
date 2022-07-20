@@ -12,6 +12,16 @@
       return {
         member: {
           steps: 1,
+          info: {
+            email: '',
+            password: '',
+            passwordConfirm: '',
+            name: '',
+            cellphone: '',
+            postCode: '',
+            address: '',
+            detailAddress: '',
+          }
         }
       }
     },
@@ -23,36 +33,45 @@
       // 회원가입 이전 단계
       handleStepPrev() {
         this.member.steps--;
+        alert('이전 단계 이동 시 현재 입력한 내용이 초기화 됩니다.');
       },
-    },
+    }
   }
 </script>
 
 <template>
-  <div class="member-form">
-    <h1>회원가입</h1>
-    <form onsubmit="return false;">
-      <fieldset>
-        <legend>회원가입 정보 입력란</legend>
-        <MemberRegistrationStep1
-          :steps="member.steps"
-          @next="handleStepNext"
-        />
-        <MemberRegistrationStep2
-          :steps="member.steps"
-          @next="handleStepNext"
-          @prev="handleStepPrev"
-        />
-        <MemberRegistrationStep3
-          :steps="member.steps"
-          @next="handleStepNext"
-          @prev="handleStepPrev"
-        />
-        <MemberRegistrationCompleted
-          :steps="member.steps"
-          @next="handleStepNext"
-        />
-      </fieldset>
-    </form>
-  </div>
+  <header>
+      <h1>회원가입</h1>
+  </header>
+  <main>
+    <div class="member-form">
+      <form onsubmit="return false;">
+        <fieldset>
+          <legend>회원가입 정보 입력란</legend>
+          <MemberRegistrationStep1
+            :steps="member.steps"
+            :info="member.info"
+            @next="handleStepNext"
+          />
+          <MemberRegistrationStep2
+            :steps="member.steps"
+            :info="member.info"
+            @next="handleStepNext"
+            @prev="handleStepPrev"
+          />
+          <MemberRegistrationStep3
+            :steps="member.steps"
+            :info="member.info"
+            @next="handleStepNext"
+            @prev="handleStepPrev"
+          />
+          <MemberRegistrationCompleted
+            :steps="member.steps"
+            :info="member.info"
+            @next="handleStepNext"
+          />
+        </fieldset>
+      </form>
+    </div>
+  </main>
 </template>
