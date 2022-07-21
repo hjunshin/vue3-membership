@@ -10,10 +10,6 @@
       handleStepNext() {
         this.$emit("next");
       },
-      // 유효성 체크
-      handleValidation() {
-        this.handleStepNext();
-      },
     },
   }
 </script>
@@ -32,6 +28,6 @@
         </div>
       </div>
     </div>
-    <button type="button" @click="handleValidation">완료</button>
+    <button type="button" @click="handleStepNext">완료</button>
   </div>
 </template>
