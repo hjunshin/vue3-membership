@@ -13,11 +13,7 @@
         }
         this.$refs[refName].focus();
       },
-      handleStepNext() {
-        this.$emit("next");
-      },
-      // 유효성 체크
-      handleValidation() {
+      inputValidation() {
         const info = this.info;
         const email = info.email;
         const password = info.password;
@@ -42,7 +38,7 @@
           this.inputFocus({
             refName: 'email',
           });
-          return;
+          return false;
         }
 
         // 비밀번호 최소 길이 확인
@@ -51,7 +47,7 @@
           this.inputFocus({
             refName: 'password',
           });
-          return;
+          return false;
         }
 
         // 비밀번호 형식 확인
@@ -60,7 +56,7 @@
           this.inputFocus({
             refName: 'password',
           });
-          return;
+          return false;
         }
 
         // 비밀번호 확인 최소 길이 확인
@@ -69,7 +65,7 @@
           this.inputFocus({
             refName: 'passwordConfirm',
           });
-          return;
+          return false;
         }
 
         // 비밀번호 확인 형식 확인
@@ -78,7 +74,7 @@
           this.inputFocus({
             refName: 'passwordConfirm',
           });
-          return;
+          return false;
         }
 
         // 비밀번호와 비밀번호 확인 동일 여부 확인
@@ -87,10 +83,16 @@
           this.inputFocus({
             refName: 'passwordConfirm',
           });
-          return;
+          return false;
         }
 
-        this.handleStepNext();
+        return true;
+      },
+      handleStepNext() {
+        if (!this.inputValidation()) {
+          return;
+        }
+        this.$emit("next");
       },
     },
     mounted() {
@@ -138,7 +140,7 @@
     </div>
     <button
       type="button"
-      @click="handleValidation"
+      @click="handleStepNext"
     >
       다음
     </button>
