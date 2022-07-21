@@ -1,11 +1,6 @@
 <script>
   export default {
     name: "MemberRegistrationStep2",
-    data() {
-      return {
-        isBtnDisabled: true,
-      }
-    },
     props: {
       steps: Number,
       info: Object,
@@ -75,7 +70,6 @@
     <button type="button" @click="handleStepPrev">이전</button>
     <button
       type="button"
-      :disabled="isBtnDisabled"
       @click="handleValidation"
     >
       다음
