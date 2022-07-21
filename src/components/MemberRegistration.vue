@@ -33,7 +33,6 @@
       // 회원가입 이전 단계
       handleStepPrev() {
         this.member.steps--;
-        alert('이전 단계 이동 시 현재 입력한 내용이 초기화 됩니다.');
       },
     }
   }

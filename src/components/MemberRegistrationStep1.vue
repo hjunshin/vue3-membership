@@ -23,7 +23,6 @@
           email: '이메일을 다시 확인해 주세요',
           password: '비밀번호를 다시 확인해 주세요',
           passwordConfirm: '비밀번호 확인을 다시 확인해 주세요',
-          passwordLength: '비밀번호는 최소 8자리 이상입니다',
           passwordUnequal: '비밀번호가 일치하지 않습니다',
         }
 
@@ -41,29 +40,11 @@
           return false;
         }
 
-        // 비밀번호 최소 길이 확인
-        if (password.length < 8) {
-          alert(alertMessage.passwordLength);
-          this.inputFocus({
-            refName: 'password',
-          });
-          return false;
-        }
-
         // 비밀번호 형식 확인
         if (!regex.password.test(password)) {
           alert(alertMessage.password);
           this.inputFocus({
             refName: 'password',
-          });
-          return false;
-        }
-
-        // 비밀번호 확인 최소 길이 확인
-        if (passwordConfirm.length < 8) {
-          alert(alertMessage.passwordLength);
-          this.inputFocus({
-            refName: 'passwordConfirm',
           });
           return false;
         }
