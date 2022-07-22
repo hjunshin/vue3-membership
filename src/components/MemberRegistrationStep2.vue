@@ -150,6 +150,7 @@
           id="member_address"
           v-model="info.address"
           ref="address"
+          disabled
         />
       </div>
       <div class="member-input">
