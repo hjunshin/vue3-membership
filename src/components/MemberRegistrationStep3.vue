@@ -7,6 +7,19 @@
     },
     emits: ['next'],
     methods: {
+      cardNumberValidation({ cardNumber = null }) {
+        if (!cardNumber) {
+          return;
+        }
+
+        cardNumber.map((number, index) => {
+          if(index % 2 === 0) {
+            console.log('짝수', number * 2);
+          } else {
+            console.log('홀수', number);
+          }
+        });
+      },
       inputFocus({ refName = null }) {
         if (!refName) {
           return;
@@ -22,9 +35,6 @@
 
         const alertMessage = {
           card: '카드번호를 다시 확인해 주세요',
-        }
-
-        const regex = {
         }
 
         if (!cardNumber1 || cardNumber1.length < 4) {
@@ -59,7 +69,14 @@
           return false;
         }
 
-        return true;
+        const cardNumber = cardNumber1 + cardNumber2 + cardNumber3 + cardNumber4;
+        const cardNumberCalc = cardNumber.split('').reverse();
+
+        this.cardNumberValidation({
+          cardNumber: cardNumberCalc,
+        });
+
+        // return true;
       },
       handleStepNext() {
         if (!this.inputValidation()) {
