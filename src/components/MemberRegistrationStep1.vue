@@ -1,11 +1,11 @@
 <script>
   export default {
-    name: "MemberRegistrationStep1",
+    name: 'MemberRegistrationStep1',
     props: {
       steps: Number,
       info: Object,
     },
-    emits: ["next"],
+    emits: ['next'],
     methods: {
       inputFocus({ refName = null }) {
         if (!refName) {
@@ -73,7 +73,7 @@
         if (!this.inputValidation()) {
           return;
         }
-        this.$emit("next");
+        this.$emit('next');
       },
     },
     mounted() {

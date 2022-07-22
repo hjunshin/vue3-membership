@@ -1,13 +1,17 @@
-<script setup>
+<script>
   import MemberRegistrationStep1 from './MemberRegistrationStep1.vue'
   import MemberRegistrationStep2 from './MemberRegistrationStep2.vue'
   import MemberRegistrationStep3 from './MemberRegistrationStep3.vue'
   import MemberRegistrationCompleted from './MemberRegistrationCompleted.vue'
-</script>
 
-<script>
   export default {
-    name: "MemberRegistration",
+    name: 'MemberRegistration',
+    components: {
+      MemberRegistrationStep1,
+      MemberRegistrationStep2,
+      MemberRegistrationStep3,
+      MemberRegistrationCompleted,
+    },
     data() {
       return {
         member: {
@@ -50,23 +54,27 @@
           <MemberRegistrationStep1
             :steps="member.steps"
             :info="member.info"
+            v-model="member.info"
             @next="handleStepNext"
           />
           <MemberRegistrationStep2
             :steps="member.steps"
             :info="member.info"
+            v-model="member.info"
             @next="handleStepNext"
             @prev="handleStepPrev"
           />
           <MemberRegistrationStep3
             :steps="member.steps"
             :info="member.info"
+            v-model="member.info"
             @next="handleStepNext"
             @prev="handleStepPrev"
           />
           <MemberRegistrationCompleted
             :steps="member.steps"
             :info="member.info"
+            v-model="member.info"
             @next="handleStepNext"
           />
         </fieldset>

@@ -1,11 +1,11 @@
 <script>
   export default {
-    name: "MemberRegistrationStep2",
+    name: 'MemberRegistrationStep2',
     props: {
       steps: Number,
       info: Object,
     },
-    emits: ["prev", "next"],
+    emits: ['prev', 'next'],
     methods: {
       searchAddresses() {
         const popupWidth = 500;
@@ -15,6 +15,7 @@
           width: popupWidth,
           height: popupHeight,
           oncomplete: function(data) {
+            this.$emit('info.address', data.address);
             console.log('data', data);
           }
         }).open({
@@ -78,13 +79,13 @@
         return true;
       },
       handleStepPrev() {
-        this.$emit("prev");
+        this.$emit('prev');
       },
       handleStepNext() {
         if (!this.inputValidation()) {
           return;
         }
-        this.$emit("next");
+        this.$emit('next');
       },
     },
   }

@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: "MemberRegistrationCompleted",
+    name: 'MemberRegistrationCompleted',
     props: {
       steps: Number,
       info: Object,
