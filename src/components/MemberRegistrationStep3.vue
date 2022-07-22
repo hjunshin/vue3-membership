@@ -12,13 +12,31 @@
           return;
         }
 
-        cardNumber.map((number, index) => {
+        const cardNumberReverse = cardNumber.split('').reverse();
+        let cardNumberArray = Array.from(cardNumberReverse);
+        const cardLastNumber = Number(cardNumberArray.pop());
+
+        cardNumberArray = cardNumberReverse.map((number, index) => {
           if(index % 2 === 0) {
-            console.log('짝수', number * 2);
+            return number * 2;
           } else {
-            console.log('홀수', number);
+            return number;
           }
         });
+
+        cardNumberArray = cardNumberReverse.map((number) => {
+          if(number > 9) {
+            return number - 9;
+          } else {
+            return number;
+          }
+        });
+
+        let sumCardNumber = cardNumberArray.reduce((acc, curr) => acc + curr, 0);
+        sumCardNumber += cardLastNumber;
+
+        const modulus =  sumCardNumber % 10;
+        return !modulus;
       },
       inputFocus({ refName = null }) {
         if (!refName) {
@@ -34,11 +52,12 @@
         const cardNumber4 = info.cardNumber4;
 
         const alertMessage = {
-          card: '카드번호를 다시 확인해 주세요',
+          cardNumber: '카드번호를 다시 확인해 주세요',
+          cardNumberValid: '카드번호가 유효하지 않습니다',
         }
 
         if (!cardNumber1 || cardNumber1.length < 4) {
-          alert(alertMessage.card);
+          alert(alertMessage.cardNumber);
           this.inputFocus({
             refName: 'cardNumber1',
           });
@@ -70,13 +89,14 @@
         }
 
         const cardNumber = cardNumber1 + cardNumber2 + cardNumber3 + cardNumber4;
-        const cardNumberCalc = cardNumber.split('').reverse();
+        const cardNumberValid = this.cardNumberValidation({ cardNumber });
 
-        this.cardNumberValidation({
-          cardNumber: cardNumberCalc,
-        });
+        if (!cardNumberValid) {
+          alert(alertMessage.cardNumberValid);
+          return false;
+        }
 
-        // return true;
+        return true;
       },
       handleStepNext() {
         if (!this.inputValidation()) {
