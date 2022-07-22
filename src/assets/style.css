@@ -1,9 +1,102 @@
-@import "./base.css";
+@import './base.css';
 
 #wrap {
   min-width: 320px;
   max-width: 768px;
   margin: 0 auto;
   height: 100vh;
+}
+
+#wrap h1 {
+  padding: 40px 20px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.member-form {
+  margin: 0 20px;
+  padding: 20px;
+  letter-spacing: -0.02em;
   border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.member-form h2 {
+  padding: 20px 0;
+  line-height: 1;
+}
+
+.member-form button {
+  padding: 0 20px;
+  height: 40px;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  border: 1px solid #000;
+}
+
+.member-input-list + .btn-wrap {
+  margin-top: 40px;
+}
+
+.member-input label {
+  display: block;
+  padding: 10px 0;
+  line-height: 1;
+}
+
+.member-input input {
+  padding: 0 10px;
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  vertical-align: top;
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.member-input .input {
+  display: flex;
+}
+
+.member-input .input > input {
+  flex: 1 1 100%;
+}
+
+.member-input .input label {
+  padding: 0 0 0 10px;
+  flex: 1 1 100%;
+}
+
+.member-input + .member-input {
+  margin-top: 10px;
+}
+
+.input-address {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+}
+
+.input-address label {
+  display: inline-block;
+}
+
+.input-address button {
+  color: #000;
+  background-color: #ccc;
+}
+
+.btn-wrap {
+  text-align: right;
+}
+
+.btn-wrap button {
+  color: #fff;
+  background-color: #000;
+}
+
+.btn-wrap button + button {
+  margin-left: 10px;
 }
