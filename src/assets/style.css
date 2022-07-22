@@ -100,3 +100,31 @@
 .btn-wrap button + button {
   margin-left: 10px;
 }
+
+.member-complete {
+  padding-bottom: 20px;
+}
+
+.member-complete > p {
+  padding: 20px 0;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.member-complete dl {
+  display: flex;
+}
+
+.member-complete dl > dt {
+  text-align: right;
+}
+
+.member-complete dl > dd {
+  padding: 0 10px;
+}
+
+.member-complete dl > dt,
+.member-complete dl > dd {
+  flex: 1 1 50%;
+}
