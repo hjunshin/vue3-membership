@@ -22,7 +22,6 @@
             passwordConfirm: '',
             name: '',
             cellphone: '',
-            postCode: '',
             address: '',
             detailAddress: '',
           }
@@ -50,7 +49,9 @@
     <div class="member-form">
       <form onsubmit="return false;">
         <fieldset>
-          <legend>회원가입 정보 입력란</legend>
+          <legend>
+            <span class="sr-only">회원가입 정보 입력란</span>
+          </legend>
           <MemberRegistrationStep1
             :steps="member.steps"
             :info="member.info"

@@ -25,12 +25,15 @@
             type="text"
             name="member_card_number1"
             id="member_card_number1"
+            inputmode="numeric"
+            maxlength="4"
           />
           <label for="member_card_number2">
             <input
               type="text"
               name="member_card_number2"
               id="member_card_number2"
+              inputmode="numeric"
               maxlength="4"
             />
           </label>
@@ -39,6 +42,7 @@
               type="text"
               name="member_card_number3"
               id="member_card_number3"
+              inputmode="numeric"
               maxlength="4"
             />
           </label>
@@ -47,17 +51,21 @@
               type="text"
               name="member_card_number4"
               id="member_card_number4"
+              inputmode="numeric"
               maxlength="4"
             />
           </label>
         </div>
       </div>
     </div>
-    <button
-      type="button"
-      @click="handleStepNext"
-    >
-      완료
-    </button>
+
+    <div class="btn-wrap">
+      <button
+        type="button"
+        @click="handleStepNext"
+      >
+        완료
+      </button>
+    </div>
   </div>
 </template>

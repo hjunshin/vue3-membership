@@ -119,11 +119,14 @@
         />
       </div>
     </div>
-    <button
-      type="button"
-      @click="handleStepNext"
-    >
-      다음
-    </button>
+
+    <div class="btn-wrap">
+      <button
+        type="button"
+        @click="handleStepNext"
+      >
+        다음
+      </button>
+    </div>
   </div>
 </template>

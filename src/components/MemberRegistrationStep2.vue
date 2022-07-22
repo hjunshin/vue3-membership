@@ -10,13 +10,13 @@
       searchAddresses() {
         const popupWidth = 500;
         const popupHeight = 600;
+        const $this = this;
 
         new daum.Postcode({
           width: popupWidth,
           height: popupHeight,
           oncomplete: function(data) {
-            this.$emit('info.address', data.address);
-            console.log('data', data);
+           $this.info.address = data.address;
           }
         }).open({
           left: (window.screen.width / 2) - (popupWidth / 2),
@@ -39,8 +39,8 @@
         const alertMessage = {
           name: '이름을 다시 확인해 주세요',
           cellphone: '연락처를 다시 확인해 주세요',
-          address: '',
-          detailAddress: '',
+          address: '주소를 다시 확인해 주세요',
+          detailAddress: '상세 주소를 다시 확인해 주세요',
         }
 
         const regex = {
@@ -48,8 +48,6 @@
           nameEn: /^([a-zA-Z]+){3,}$/,
           cellphone: /^010-?([0-9]{3,4})-?([0-9]{4})$/,
           cellphoneSpace: /^010 ([0-9]{3,4}) ([0-9]{4})$/,
-          address: '',
-          detailAddress: '',
         }
 
         // 이름 형식 확인
@@ -72,6 +70,24 @@
           alert(alertMessage.cellphone);
           this.inputFocus({
             refName: 'cellphone',
+          });
+          return false;
+        }
+
+        // 주소 입력 확인
+        if (!address) {
+          alert(alertMessage.address);
+          this.inputFocus({
+            refName: 'address',
+          });
+          return false;
+        }
+
+        // 상세 주소 입력 확인
+        if (!detailAddress) {
+          alert(alertMessage.detailAddress);
+          this.inputFocus({
+            refName: 'detailAddress',
           });
           return false;
         }
@@ -113,12 +129,13 @@
           name="member_cellphone"
           id="member_cellphone"
           maxlength="13"
+          inputmode="numeric"
           v-model="info.cellphone"
           ref="cellphone"
         />
       </div>
       <div class="member-input">
-        <div>
+        <div class="input-address">
           <label for="member_address">주소</label>
           <button
             type="button"
@@ -136,7 +153,7 @@
         />
       </div>
       <div class="member-input">
-        <label for="member_detail_address">상세주소</label>
+        <label for="member_detail_address">상세 주소</label>
         <input
           type="text"
           name="member_detail_address"
@@ -146,12 +163,15 @@
         />
       </div>
     </div>
-    <button type="button" @click="handleStepPrev">이전</button>
-    <button
-      type="button"
-      @click="handleStepNext"
-    >
-      다음
-    </button>
+
+    <div class="btn-wrap">
+      <button type="button" @click="handleStepPrev">이전</button>
+      <button
+        type="button"
+        @click="handleStepNext"
+      >
+        다음
+      </button>
+    </div>
   </div>
 </template>
