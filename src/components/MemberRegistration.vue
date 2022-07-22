@@ -24,6 +24,10 @@
             cellphone: '',
             address: '',
             detailAddress: '',
+            cardNumber1: '',
+            cardNumber2: '',
+            cardNumber3: '',
+            cardNumber4: '',
           }
         }
       }
